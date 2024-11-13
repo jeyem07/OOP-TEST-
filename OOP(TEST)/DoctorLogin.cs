@@ -49,7 +49,7 @@ namespace OOP_TEST_
                     {
                         MessageBox.Show("Login successful!", "succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        PatientDashboard patientDashboard = new PatientDashboard();
+                        PDashboard patientDashboard = new PDashboard();
                         patientDashboard.Show();
 
                         this.Hide();

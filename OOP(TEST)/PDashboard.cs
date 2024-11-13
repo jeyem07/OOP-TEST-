@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace OOP_TEST_
 {
-    public partial class PatientDashboard : Form
+    public partial class PDashboard : Form
     {
         private string connectionString = "Server=127.0.0.1; Database=patient;User ID=root;Password=";
 
-        public PatientDashboard()
+        public PDashboard()
         {
             InitializeComponent();
         }

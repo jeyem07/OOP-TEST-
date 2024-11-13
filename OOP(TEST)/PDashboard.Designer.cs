@@ -1,6 +1,6 @@
 ﻿namespace OOP_TEST_
 {
-    partial class PatientDashboard
+    partial class PDashboard
     {
         /// <summary>
         /// Required designer variable.
