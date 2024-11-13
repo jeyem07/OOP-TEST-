@@ -28,7 +28,7 @@ namespace OOP_TEST_
                 try
                 {
                     connection.Open();
-                    string query = "SELECT firstname, lastname, email, consultationfee, password from patientinfo";
+                    string query = "SELECT firstname, lastname, email, consultationfee, password from tb_doctor";
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
@@ -54,7 +54,7 @@ namespace OOP_TEST_
                 try
                 {
                     connection.Open();
-                    string query = "SELECT firstname, lastname, email, Contactnumber, password from patient123";
+                    string query = "SELECT firstname, lastname, email, Contactnumber, password from tb_patient";
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 

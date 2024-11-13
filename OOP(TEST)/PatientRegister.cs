@@ -54,7 +54,7 @@ namespace OOP_TEST_
             using (MySqlConnection conn = new MySqlConnection(connectionstring))
             {
                 conn.Open();
-                string query = "INSERT INTO patient123 (Firstname, Lastname, Email, ContactNumber, Password, password1) VALUES (@Firstname, @Lastname, @Username, @ContactNumber,  @Password, @Password1)";
+                string query = "INSERT INTO tb_patient (Firstname, Lastname, Email, ContactNumber, Password, password1) VALUES (@Firstname, @Lastname, @Username, @ContactNumber,  @Password, @Password1)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {

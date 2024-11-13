@@ -30,7 +30,7 @@ namespace OOP_TEST_
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-      
+
 
         private void exit_Click(object sender, EventArgs e)
         {
@@ -56,7 +56,7 @@ namespace OOP_TEST_
             using (MySqlConnection conn = new MySqlConnection(connectionstring))
             {
                 conn.Open();
-                string query = "INSERT INTO patientinfo (Firstname, Lastname, Email, Consultationfee, Password, password1) VALUES (@MDFirstname, @MDLastname, @MDEmail, @MDConsultationfee,  @MDPassword, @Password1)";
+                string query = "INSERT INTO tb_doctor (Firstname, Lastname, Email, Consultationfee, Password, password1) VALUES (@MDFirstname, @MDLastname, @MDEmail, @MDConsultationfee,  @MDPassword, @Password1)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -73,7 +73,7 @@ namespace OOP_TEST_
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Registration successful!");
 
-                    
+
                     }
                     catch (MySqlException ex)
                     {

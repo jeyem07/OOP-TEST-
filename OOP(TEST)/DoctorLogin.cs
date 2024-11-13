@@ -39,7 +39,7 @@ namespace OOP_TEST_
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT Password1 FROM patientinfo WHERE Email = @MDemail";
+                string query = "SELECT Password1 FROM tb_doctor WHERE Email = @MDemail";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@MDemail", DoctorUsername.Text);

@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             label1 = new Label();
             ManageDoctorsBtn = new Guna.UI2.WinForms.Guna2Button();
             AppointmentBtn = new Guna.UI2.WinForms.Guna2Button();
             BookAppointmentPanel = new Panel();
-            SubmitBtn = new Button();
             label2 = new Label();
-            DoctorComboBox = new ComboBox();
             dateTimePicker1 = new DateTimePicker();
+            SubmitBtn = new Button();
+            ConsFeeLbl = new Label();
+            DoctorComboBox = new ComboBox();
             guna2GradientPanel1.SuspendLayout();
             BookAppointmentPanel.SuspendLayout();
             SuspendLayout();
@@ -52,10 +53,10 @@
             guna2GradientPanel1.Controls.Add(label1);
             guna2GradientPanel1.Controls.Add(ManageDoctorsBtn);
             guna2GradientPanel1.Controls.Add(AppointmentBtn);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges11;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges5;
             guna2GradientPanel1.Location = new Point(1, 0);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2GradientPanel1.Size = new Size(211, 335);
             guna2GradientPanel1.TabIndex = 30;
             // 
@@ -76,7 +77,7 @@
             // 
             ManageDoctorsBtn.BorderRadius = 30;
             ManageDoctorsBtn.Cursor = Cursors.Hand;
-            ManageDoctorsBtn.CustomizableEdges = customizableEdges7;
+            ManageDoctorsBtn.CustomizableEdges = customizableEdges1;
             ManageDoctorsBtn.DisabledState.BorderColor = Color.DarkGray;
             ManageDoctorsBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             ManageDoctorsBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -86,7 +87,7 @@
             ManageDoctorsBtn.ForeColor = Color.White;
             ManageDoctorsBtn.Location = new Point(42, 233);
             ManageDoctorsBtn.Name = "ManageDoctorsBtn";
-            ManageDoctorsBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            ManageDoctorsBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             ManageDoctorsBtn.Size = new Size(131, 60);
             ManageDoctorsBtn.TabIndex = 31;
             ManageDoctorsBtn.Text = "Appointment History";
@@ -95,7 +96,7 @@
             // 
             AppointmentBtn.BorderRadius = 30;
             AppointmentBtn.Cursor = Cursors.Hand;
-            AppointmentBtn.CustomizableEdges = customizableEdges9;
+            AppointmentBtn.CustomizableEdges = customizableEdges3;
             AppointmentBtn.DisabledState.BorderColor = Color.DarkGray;
             AppointmentBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             AppointmentBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -105,7 +106,7 @@
             AppointmentBtn.ForeColor = Color.White;
             AppointmentBtn.Location = new Point(42, 138);
             AppointmentBtn.Name = "AppointmentBtn";
-            AppointmentBtn.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            AppointmentBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             AppointmentBtn.Size = new Size(131, 60);
             AppointmentBtn.TabIndex = 30;
             AppointmentBtn.Text = "Book Appointment";
@@ -113,15 +114,32 @@
             // 
             // BookAppointmentPanel
             // 
+            BookAppointmentPanel.Controls.Add(label2);
             BookAppointmentPanel.Controls.Add(dateTimePicker1);
             BookAppointmentPanel.Controls.Add(SubmitBtn);
-            BookAppointmentPanel.Controls.Add(label2);
+            BookAppointmentPanel.Controls.Add(ConsFeeLbl);
             BookAppointmentPanel.Controls.Add(DoctorComboBox);
             BookAppointmentPanel.Location = new Point(218, 0);
             BookAppointmentPanel.Name = "BookAppointmentPanel";
             BookAppointmentPanel.Size = new Size(469, 335);
             BookAppointmentPanel.TabIndex = 31;
             BookAppointmentPanel.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(32, 80);
+            label2.Name = "label2";
+            label2.Size = new Size(28, 20);
+            label2.TabIndex = 6;
+            label2.Text = "Dr.";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(66, 149);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 5;
             // 
             // SubmitBtn
             // 
@@ -131,18 +149,20 @@
             SubmitBtn.TabIndex = 4;
             SubmitBtn.Text = "Submit";
             SubmitBtn.UseVisualStyleBackColor = true;
+            SubmitBtn.Click += SubmitBtn_Click;
             // 
-            // label2
+            // ConsFeeLbl
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(286, 80);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 1;
-            label2.Text = "label2";
+            ConsFeeLbl.AutoSize = true;
+            ConsFeeLbl.Location = new Point(286, 80);
+            ConsFeeLbl.Name = "ConsFeeLbl";
+            ConsFeeLbl.Size = new Size(119, 20);
+            ConsFeeLbl.TabIndex = 1;
+            ConsFeeLbl.Text = "Consultation Fee";
             // 
             // DoctorComboBox
             // 
+            DoctorComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             DoctorComboBox.FormattingEnabled = true;
             DoctorComboBox.Location = new Point(66, 77);
             DoctorComboBox.Name = "DoctorComboBox";
@@ -150,14 +170,7 @@
             DoctorComboBox.TabIndex = 0;
             DoctorComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(66, 149);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 5;
-            // 
-            // PatientDashboard
+            // PDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -165,7 +178,7 @@
             ControlBox = false;
             Controls.Add(BookAppointmentPanel);
             Controls.Add(guna2GradientPanel1);
-            Name = "PatientDashboard";
+            Name = "PDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             guna2GradientPanel1.ResumeLayout(false);
             guna2GradientPanel1.PerformLayout();
@@ -181,9 +194,10 @@
         private Guna.UI2.WinForms.Guna2Button ManageDoctorsBtn;
         private Guna.UI2.WinForms.Guna2Button AppointmentBtn;
         private Panel BookAppointmentPanel;
-        private Label label2;
+        private Label ConsFeeLbl;
         private ComboBox DoctorComboBox;
         private Button SubmitBtn;
         private DateTimePicker dateTimePicker1;
+        private Label label2;
     }
 }

@@ -52,6 +52,8 @@
             MDConsultationFee = new Guna.UI2.WinForms.Guna2TextBox();
             exit = new Guna.UI2.WinForms.Guna2Button();
             MDBtnAddDoctor1 = new Guna.UI2.WinForms.Guna2Button();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // MDFirstName
@@ -145,7 +147,7 @@
             MDEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             MDEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             MDEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            MDEmail.Location = new Point(318, 136);
+            MDEmail.Location = new Point(318, 101);
             MDEmail.Name = "MDEmail";
             MDEmail.PasswordChar = '\0';
             MDEmail.PlaceholderText = "Email";
@@ -165,7 +167,7 @@
             MDConsultationFee.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             MDConsultationFee.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             MDConsultationFee.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            MDConsultationFee.Location = new Point(318, 70);
+            MDConsultationFee.Location = new Point(318, 37);
             MDConsultationFee.Name = "MDConsultationFee";
             MDConsultationFee.PasswordChar = '\0';
             MDConsultationFee.PlaceholderText = "Consultation Fee";
@@ -193,7 +195,7 @@
             // 
             // MDBtnAddDoctor1
             // 
-            MDBtnAddDoctor1.BorderRadius = 30;
+            MDBtnAddDoctor1.BorderRadius = 25;
             MDBtnAddDoctor1.Cursor = Cursors.Hand;
             MDBtnAddDoctor1.CustomizableEdges = customizableEdges15;
             MDBtnAddDoctor1.DisabledState.BorderColor = Color.DarkGray;
@@ -203,7 +205,7 @@
             MDBtnAddDoctor1.FillColor = Color.DarkCyan;
             MDBtnAddDoctor1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             MDBtnAddDoctor1.ForeColor = Color.White;
-            MDBtnAddDoctor1.Location = new Point(333, 214);
+            MDBtnAddDoctor1.Location = new Point(333, 222);
             MDBtnAddDoctor1.Name = "MDBtnAddDoctor1";
             MDBtnAddDoctor1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             MDBtnAddDoctor1.Size = new Size(208, 53);
@@ -211,12 +213,32 @@
             MDBtnAddDoctor1.Text = "Add Doctor";
             MDBtnAddDoctor1.Click += MDBtnAddDoctor1_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "06:00 - 14:00", "14:00 - 22:00", "22:00 - 6:00 " });
+            comboBox1.Location = new Point(408, 164);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(160, 28);
+            comboBox1.TabIndex = 43;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(318, 164);
+            label1.Name = "label1";
+            label1.Size = new Size(83, 40);
+            label1.TabIndex = 44;
+            label1.Text = "Doctor's\r\nAvailability\r\n";
+            // 
             // AdminAddDoctor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(612, 330);
             ControlBox = false;
+            Controls.Add(label1);
+            Controls.Add(comboBox1);
             Controls.Add(MDBtnAddDoctor1);
             Controls.Add(exit);
             Controls.Add(MDConsultationFee);
@@ -229,6 +251,7 @@
             Name = "AdminAddDoctor";
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -241,5 +264,7 @@
         private Guna.UI2.WinForms.Guna2TextBox MDConsultationFee;
         private Guna.UI2.WinForms.Guna2Button exit;
         private Guna.UI2.WinForms.Guna2Button MDBtnAddDoctor1;
+        private ComboBox comboBox1;
+        private Label label1;
     }
 }
