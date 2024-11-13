@@ -33,13 +33,6 @@ namespace OOP_TEST_
             this.Hide();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            PatientDashboard patientDashboard = new PatientDashboard();
-            patientDashboard.Show();
-
-            this.Hide();
-        }
 
         private void showPass_CheckedChanged(object sender, EventArgs e)
         {
@@ -69,7 +62,7 @@ namespace OOP_TEST_
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT Password FROM patient123 WHERE Email = @Username";
+                string query = "SELECT Password1 FROM patient123 WHERE Email = @Username";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Username", PatientUsername.Text);

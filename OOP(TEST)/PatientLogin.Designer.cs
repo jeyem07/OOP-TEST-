@@ -34,14 +34,11 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             LoginBtn = new Guna.UI2.WinForms.Guna2Button();
             PatientPass = new Guna.UI2.WinForms.Guna2TextBox();
             PatientUsername = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Linklbl1 = new LinkLabel();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             showPass = new CheckBox();
             SuspendLayout();
             // 
@@ -143,26 +140,6 @@
             Linklbl1.Text = "Register an account";
             Linklbl1.LinkClicked += Linklbl1_LinkClicked;
             // 
-            // guna2Button1
-            // 
-            guna2Button1.BorderRadius = 30;
-            guna2Button1.Cursor = Cursors.Hand;
-            guna2Button1.CustomizableEdges = customizableEdges7;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.DarkCyan;
-            guna2Button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(303, 447);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Button1.Size = new Size(95, 58);
-            guna2Button1.TabIndex = 24;
-            guna2Button1.Text = "skip";
-            guna2Button1.Click += guna2Button1_Click;
-            // 
             // showPass
             // 
             showPass.AutoSize = true;
@@ -181,7 +158,6 @@
             ClientSize = new Size(505, 517);
             ControlBox = false;
             Controls.Add(showPass);
-            Controls.Add(guna2Button1);
             Controls.Add(Linklbl1);
             Controls.Add(LoginBtn);
             Controls.Add(PatientPass);
@@ -202,7 +178,6 @@
         private Guna.UI2.WinForms.Guna2TextBox PatientUsername;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private LinkLabel Linklbl1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private CheckBox showPass;
     }
 }

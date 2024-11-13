@@ -16,7 +16,6 @@ namespace OOP_TEST_
         public AdminLogin()
         {
             InitializeComponent();
-            AdminPass.PasswordChar = '*';
         }
 
         private void AdminLoginBtn_Click(object sender, EventArgs e)
@@ -49,6 +48,20 @@ namespace OOP_TEST_
         private void AdminLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void showPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPass.Checked)
+            {
+                AdminPass.PasswordChar = '\0';
+                AdminPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                AdminPass.PasswordChar = '●';
+                AdminPass.UseSystemPasswordChar = false;
+            }
         }
     }
 }

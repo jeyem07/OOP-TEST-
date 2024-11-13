@@ -38,6 +38,7 @@
             AdminPass = new Guna.UI2.WinForms.Guna2TextBox();
             AdminUsername = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            showPass = new CheckBox();
             SuspendLayout();
             // 
             // AdminLoginBtn
@@ -79,7 +80,7 @@
             AdminPass.Margin = new Padding(13, 12, 13, 12);
             AdminPass.Name = "AdminPass";
             AdminPass.Padding = new Padding(27, 25, 27, 25);
-            AdminPass.PasswordChar = '\0';
+            AdminPass.PasswordChar = '●';
             AdminPass.PlaceholderForeColor = SystemColors.GrayText;
             AdminPass.PlaceholderText = "Password";
             AdminPass.SelectedText = "";
@@ -124,12 +125,24 @@
             guna2HtmlLabel1.TabIndex = 24;
             guna2HtmlLabel1.Text = "Login as Admin";
             // 
+            // showPass
+            // 
+            showPass.AutoSize = true;
+            showPass.Location = new Point(60, 280);
+            showPass.Name = "showPass";
+            showPass.Size = new Size(139, 22);
+            showPass.TabIndex = 34;
+            showPass.Text = "Show Password";
+            showPass.UseVisualStyleBackColor = true;
+            showPass.CheckedChanged += showPass_CheckedChanged;
+            // 
             // AdminLogin
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 514);
             ControlBox = false;
+            Controls.Add(showPass);
             Controls.Add(AdminLoginBtn);
             Controls.Add(AdminPass);
             Controls.Add(AdminUsername);
@@ -149,5 +162,6 @@
         private Guna.UI2.WinForms.Guna2TextBox AdminPass;
         private Guna.UI2.WinForms.Guna2TextBox AdminUsername;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private CheckBox showPass;
     }
 }

@@ -128,10 +128,10 @@
             // showPass
             // 
             showPass.AutoSize = true;
-            showPass.Location = new Point(53, 257);
+            showPass.Location = new Point(56, 257);
             showPass.Name = "showPass";
             showPass.Size = new Size(139, 22);
-            showPass.TabIndex = 32;
+            showPass.TabIndex = 34;
             showPass.Text = "Show Password";
             showPass.UseVisualStyleBackColor = true;
             showPass.CheckedChanged += showPass_CheckedChanged;
