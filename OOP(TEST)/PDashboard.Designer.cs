@@ -44,6 +44,7 @@
             SubmitBtn = new Button();
             ConsFeeLbl = new Label();
             DoctorComboBox = new ComboBox();
+            TimeCombobox = new ComboBox();
             guna2GradientPanel1.SuspendLayout();
             BookAppointmentPanel.SuspendLayout();
             SuspendLayout();
@@ -114,6 +115,7 @@
             // 
             // BookAppointmentPanel
             // 
+            BookAppointmentPanel.Controls.Add(TimeCombobox);
             BookAppointmentPanel.Controls.Add(label2);
             BookAppointmentPanel.Controls.Add(dateTimePicker1);
             BookAppointmentPanel.Controls.Add(SubmitBtn);
@@ -170,6 +172,17 @@
             DoctorComboBox.TabIndex = 0;
             DoctorComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
+            // TimeCombobox
+            // 
+            TimeCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            TimeCombobox.FormattingEnabled = true;
+            TimeCombobox.Items.AddRange(new object[] { "6:00 - 14:00", "14:00 - 22:00", "22:00 - 6:00" });
+            TimeCombobox.Location = new Point(66, 195);
+            TimeCombobox.Name = "TimeCombobox";
+            TimeCombobox.Size = new Size(151, 28);
+            TimeCombobox.TabIndex = 45;
+            TimeCombobox.SelectedIndexChanged += TimeCombobox_SelectedIndexChanged_1;
+            // 
             // PDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -199,5 +212,6 @@
         private Button SubmitBtn;
         private DateTimePicker dateTimePicker1;
         private Label label2;
+        private ComboBox TimeCombobox;
     }
 }

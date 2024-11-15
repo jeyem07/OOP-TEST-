@@ -50,7 +50,7 @@ namespace OOP_TEST_
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            string username = PatientUsername.Text;
+             string username = PatientUsername.Text;
             string password = PatientPass.Text;
 
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
