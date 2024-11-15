@@ -1,48 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace OOP_TEST_
 {
     public partial class AdminLogin : Form
     {
+        private AuthenticationService _authenticationService;
+
         public AdminLogin()
         {
             InitializeComponent();
+            _authenticationService = new AuthenticationService();
         }
 
         private void AdminLoginBtn_Click(object sender, EventArgs e)
         {
+            string username = AdminUsername.Text;
+            string password = AdminPass.Text;
 
-
-            if (String.IsNullOrWhiteSpace(AdminUsername.Text) || String.IsNullOrWhiteSpace(AdminPass.Text))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Credentials are Empty", "Please Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (AdminUsername.Text == "admin" && AdminPass.Text == "admin123")
+            if (_authenticationService.Authenticate(username, password))
             {
-                MessageBox.Show("Log in Succesfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Log in Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
 
                 AdminDashboard adminDashboard = new AdminDashboard();
                 adminDashboard.Show();
             }
-
             else
             {
                 MessageBox.Show("Invalid Credentials. Please Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
         }
 
         private void AdminLogin_Load(object sender, EventArgs e)
@@ -60,8 +53,16 @@ namespace OOP_TEST_
             else
             {
                 AdminPass.PasswordChar = '●';
-                AdminPass.UseSystemPasswordChar = false;
+                AdminPass.UseSystemPasswordChar = true;
             }
+        }
+    }
+
+    public class AuthenticationService
+    {
+        public bool Authenticate(string username, string password)
+        {
+            return username == "admin" && password == "admin123";
         }
     }
 }

@@ -1,36 +1,19 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using BCrypt.Net;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
-
-
 
 namespace OOP_TEST_
 {
     public partial class AdminAddDoctor : Form
     {
-        private string connectionstring = "Server=127.0.0.1; Database=patient;User ID=root;Password=";
+        private readonly DoctorService _doctorService;
+
         public AdminAddDoctor()
         {
             InitializeComponent();
+            string connectionString = "Server=127.0.0.1; Database=patient; User ID=root; Password=";
+            _doctorService = new DoctorService(connectionString);
         }
-
-        private string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-
-
 
         private void exit_Click(object sender, EventArgs e)
         {
@@ -39,50 +22,93 @@ namespace OOP_TEST_
 
         private void MDBtnAddDoctor1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(MDFirstName.Text) || String.IsNullOrEmpty(MDLastName.Text) || String.IsNullOrEmpty(MDEmail.Text) || String.IsNullOrEmpty(MDPassword.Text) || String.IsNullOrEmpty(MDConfirmPassword.Text) || String.IsNullOrEmpty(MDConsultationFee.Text))
+            if (!_doctorService.ValidateInputs(
+                MDFirstName.Text,
+                MDLastName.Text,
+                MDEmail.Text,
+                MDPassword.Text,
+                MDConfirmPassword.Text,
+                MDConsultationFee.Text))
+            {
+                return;
+            }
+
+            try
+            {
+                _doctorService.RegisterDoctor(
+                    MDFirstName.Text,
+                    MDLastName.Text,
+                    MDEmail.Text,
+                    MDPassword.Text,
+                    MDConsultationFee.Text);
+
+                MessageBox.Show("Registration successful!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+
+    public class DoctorService
+    {
+        private readonly string _connectionString;
+
+        public DoctorService(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
+        public bool ValidateInputs(string firstName, string lastName, string email, string password, string confirmPassword, string consultationFee)
+        {
+            if (string.IsNullOrEmpty(firstName) ||
+                string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(email) ||
+                string.IsNullOrEmpty(password) ||
+                string.IsNullOrEmpty(confirmPassword) ||
+                string.IsNullOrEmpty(consultationFee))
             {
                 MessageBox.Show("Please fill out all fields.", "Incomplete Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
-            if (MDPassword.Text != MDConfirmPassword.Text)
+            if (password != confirmPassword)
             {
-                MessageBox.Show("Passwords do not match. Please try again.");
-                return;
+                MessageBox.Show("Passwords do not match. Please try again.", "Password Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
-            string hashedPassword = HashPassword(MDPassword.Text);
+            return true;
+        }
 
-            using (MySqlConnection conn = new MySqlConnection(connectionstring))
+        public void RegisterDoctor(string firstName, string lastName, string email, string password, string consultationFee)
+        {
+            string hashedPassword = HashPassword(password);
+
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO tb_doctor (Firstname, Lastname, Email, Consultationfee, Password, password1) VALUES (@MDFirstname, @MDLastname, @MDEmail, @MDConsultationfee,  @MDPassword, @Password1)";
+                string query = @"
+                    INSERT INTO tb_doctor (Firstname, Lastname, Email, Consultationfee, Password)
+                    VALUES (@MDFirstName, @MDLastName, @MDEmail, @MDConsultationFee, @PasswordHash)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@MDEmail", MDEmail.Text);
-                    cmd.Parameters.AddWithValue("@MDFirstname", MDFirstName.Text);
-                    cmd.Parameters.AddWithValue("@MDLastname", MDLastName.Text);
-                    cmd.Parameters.AddWithValue("@MDPassword", MDPassword.Text);
-                    cmd.Parameters.AddWithValue("@MDConsultationfee", MDConsultationFee.Text);
-                    cmd.Parameters.AddWithValue("@Password1", hashedPassword);
+                    cmd.Parameters.AddWithValue("@MDFirstName", firstName);
+                    cmd.Parameters.AddWithValue("@MDLastName", lastName);
+                    cmd.Parameters.AddWithValue("@MDEmail", email);
+                    cmd.Parameters.AddWithValue("@MDConsultationFee", consultationFee);
+                    cmd.Parameters.AddWithValue("@PasswordHash", hashedPassword);
 
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registration successful!");
-
-
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-
-
+                    cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
     }
 }

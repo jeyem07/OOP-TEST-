@@ -39,12 +39,12 @@
             ManageDoctorsBtn = new Guna.UI2.WinForms.Guna2Button();
             AppointmentBtn = new Guna.UI2.WinForms.Guna2Button();
             BookAppointmentPanel = new Panel();
+            TimeCombobox = new ComboBox();
             label2 = new Label();
             dateTimePicker1 = new DateTimePicker();
             SubmitBtn = new Button();
             ConsFeeLbl = new Label();
             DoctorComboBox = new ComboBox();
-            TimeCombobox = new ComboBox();
             guna2GradientPanel1.SuspendLayout();
             BookAppointmentPanel.SuspendLayout();
             SuspendLayout();
@@ -127,6 +127,13 @@
             BookAppointmentPanel.TabIndex = 31;
             BookAppointmentPanel.Visible = false;
             // 
+            // TimeCombobox
+            // 
+            TimeCombobox.Location = new Point(195, 191);
+            TimeCombobox.Name = "TimeCombobox";
+            TimeCombobox.Size = new Size(121, 28);
+            TimeCombobox.TabIndex = 0;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -171,17 +178,6 @@
             DoctorComboBox.Size = new Size(151, 28);
             DoctorComboBox.TabIndex = 0;
             DoctorComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
-            // TimeCombobox
-            // 
-            TimeCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            TimeCombobox.FormattingEnabled = true;
-            TimeCombobox.Items.AddRange(new object[] { "6:00 - 14:00", "14:00 - 22:00", "22:00 - 6:00" });
-            TimeCombobox.Location = new Point(66, 195);
-            TimeCombobox.Name = "TimeCombobox";
-            TimeCombobox.Size = new Size(151, 28);
-            TimeCombobox.TabIndex = 45;
-            TimeCombobox.SelectedIndexChanged += TimeCombobox_SelectedIndexChanged_1;
             // 
             // PDashboard
             // 
